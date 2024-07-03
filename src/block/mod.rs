@@ -17,6 +17,10 @@ impl Block {
             nonce: 0,
             height,
         };
+        let pow = ProofOfWork::new_proof_of_work(block.clone());
+        let (nonce, hash) = pow.run();
+        block.nonce = nonce;
+        block.hash = hash;
         block
     }
 }
