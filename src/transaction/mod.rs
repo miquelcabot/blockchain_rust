@@ -1,11 +1,11 @@
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Transaction {
     id: Vec<u8>,
     vin: Vec<TXInput>,
     vout: Vec<TXOutput>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct TXInput {
     txid: Vec<u8>,
     vout: usize,
@@ -13,8 +13,14 @@ pub struct TXInput {
     pub_key: Vec<u8>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct TXOutput {
     value: i32,
     pub_key_hash: Vec<u8>,
+}
+
+impl Transaction {
+    pub fn get_id(&self) -> &[u8] {
+        self.id.as_slice()
+    }
 }
