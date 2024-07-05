@@ -13,5 +13,8 @@ pub use nodes::Nodes;
 pub use proof_of_work::ProofOfWork;
 pub use server::Server;
 pub use transaction::Transaction;
-pub use utils::sha256_digest;
 pub use wallet::Wallet;
+
+// functions from utils
+pub use utils::current_timestamp;
+pub use utils::sha256_digest;

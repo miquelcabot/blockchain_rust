@@ -15,7 +15,7 @@ pub struct Block {
 impl Block {
     pub fn new_block(pre_block_hash: String, transactions: &[Transaction], height: usize) -> Block {
         let mut block = Block {
-            timestamp: 0,
+            timestamp: crate::current_timestamp(),
             pre_block_hash,
             hash: String::new(),
             transactions: transactions.to_vec(),
