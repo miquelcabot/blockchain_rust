@@ -1,4 +1,4 @@
-use sled::{Db};
+use sled::Db;
 use std::sync::{Arc, RwLock};
 
 pub struct Blockchain {
