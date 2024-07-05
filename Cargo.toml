@@ -5,6 +5,7 @@ edition = "2021"
 authors = ["Miquel A. Cabot <miquel@cabot.dev>"]
 
 [dependencies]
+bincode = "1.3.3"
 clap = { version = "4.5.8", features = ["derive"] }
 data-encoding = "2.6.0"
 num-bigint = "0.4.6"
