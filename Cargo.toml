@@ -2,6 +2,7 @@
 name = "blockchain_rust"
 version = "0.1.0"
 edition = "2021"
+authors = ["Miquel A. Cabot <miquel@cabot.dev>"]
 
 [dependencies]
 clap = { version = "4.5.8", features = ["derive"] }
