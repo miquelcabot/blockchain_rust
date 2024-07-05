@@ -3,7 +3,6 @@ use data_encoding::HEXLOWER;
 use num_bigint::{BigInt, Sign};
 use serde::{Deserialize, Serialize};
 use sled::IVec;
-use std::borrow::Borrow;
 use std::ops::ShlAssign;
 
 const TARGET_BITS: i32 = 8;
@@ -101,7 +100,7 @@ impl Block {
 
         let mut nonce = 0;
         let mut hash = Vec::new();
-        print!("🧱 Mining the block... ");
+        print!("🧱 Mining block {}... ", block.get_height());
         while nonce < MAX_NONCE {
             let data = Self::get_data_for_proof_of_work(block, nonce);
             hash = crate::sha256_digest(data.as_slice());
