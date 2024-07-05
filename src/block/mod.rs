@@ -7,7 +7,7 @@ use std::borrow::Borrow;
 use std::ops::ShlAssign;
 
 const TARGET_BITS: i32 = 8;
-const MAX_NONCE: i64 = i64::MAX;
+const MAX_NONCE: u64 = u64::MAX;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Block {
@@ -15,7 +15,7 @@ pub struct Block {
     pre_block_hash: String,
     hash: String,
     transactions: Vec<Transaction>,
-    nonce: i64,
+    nonce: u64,
     height: usize,
 }
 
@@ -81,7 +81,7 @@ impl Block {
         self.height
     }
 
-    fn prepare_data(block: &Block, nonce: i64) -> Vec<u8> {
+    fn prepare_data(block: &Block, nonce: u64) -> Vec<u8> {
         let pre_block_hash = block.get_pre_block_hash();
         let transactions_hash = block.hash_transactions();
         let timestamp = block.get_timestamp();
@@ -94,7 +94,7 @@ impl Block {
         return data_bytes;
     }
 
-    fn run_proof_of_work(block: &Block) -> (i64, String) {
+    fn run_proof_of_work(block: &Block) -> (u64, String) {
         let mut target = BigInt::from(1);
 
         target.shl_assign(256 - TARGET_BITS);
