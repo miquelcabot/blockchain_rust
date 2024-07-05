@@ -52,7 +52,40 @@ enum Command {
 fn main() {
     let args: Args = Args::parse();
 
-    println!("{:?}", args);
+    match args.command {
+        Command::Createblockchain { address } => {
+            println!("Create a new blockchain with address: {}", address);
+        }
+        Command::Createwallet => {
+            println!("Create a new wallet");
+        }
+        Command::GetBalance { address } => {
+            println!("Get the wallet balance of the target address: {}", address);
+        }
+        Command::ListAddresses => {
+            println!("Print local wallet addresses");
+        }
+        Command::Send {
+            from,
+            to,
+            amount,
+            mine,
+        } => {
+            println!(
+                "Send {} coins from {} to {} and mine: {}",
+                amount, from, to, mine
+            );
+        }
+        Command::Printchain => {
+            println!("Print all blocks in the blockchain");
+        }
+        Command::Reindexutxo => {
+            println!("Rebuild UTXO index set");
+        }
+        Command::StartNode { miner } => {
+            println!("Start a node with miner: {:?}", miner);
+        }
+    }
 
     /*
     let block = Block::new_block("".to_string(), &[], 0);
