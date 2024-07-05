@@ -81,7 +81,7 @@ impl Block {
         self.height
     }
 
-    fn prepare_data(block: &Block, nonce: u64) -> Vec<u8> {
+    fn get_data_for_proof_of_work(block: &Block, nonce: u64) -> Vec<u8> {
         let pre_block_hash = block.get_pre_block_hash();
         let transactions_hash = block.hash_transactions();
         let timestamp = block.get_timestamp();
@@ -103,11 +103,10 @@ impl Block {
         let mut hash = Vec::new();
         println!("Mining the block");
         while nonce < MAX_NONCE {
-            let data = Self::prepare_data(block, nonce);
+            let data = Self::get_data_for_proof_of_work(block, nonce);
             hash = crate::sha256_digest(data.as_slice());
             let hash_int = BigInt::from_bytes_be(Sign::Plus, hash.as_slice());
-
-            if hash_int.lt(target.borrow()) {
+            if hash_int < target {
                 println!("{}", HEXLOWER.encode(hash.as_slice()));
                 break;
             } else {
