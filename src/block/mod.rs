@@ -101,13 +101,13 @@ impl Block {
 
         let mut nonce = 0;
         let mut hash = Vec::new();
-        println!("Mining the block");
+        print!("🧱 Mining the block... ");
         while nonce < MAX_NONCE {
             let data = Self::get_data_for_proof_of_work(block, nonce);
             hash = crate::sha256_digest(data.as_slice());
             let hash_int = BigInt::from_bytes_be(Sign::Plus, hash.as_slice());
             if hash_int < target {
-                println!("{}", HEXLOWER.encode(hash.as_slice()));
+                print!("{}", HEXLOWER.encode(hash.as_slice()));
                 break;
             } else {
                 nonce += 1;
