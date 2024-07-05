@@ -11,7 +11,7 @@ const MAX_NONCE: u64 = u64::MAX;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Block {
-    timestamp: i64,
+    timestamp: u64,
     pre_block_hash: String,
     hash: String,
     transactions: Vec<Transaction>,
@@ -73,7 +73,7 @@ impl Block {
         self.hash.as_bytes().to_vec()
     }
 
-    pub fn get_timestamp(&self) -> i64 {
+    pub fn get_timestamp(&self) -> u64 {
         self.timestamp
     }
 
