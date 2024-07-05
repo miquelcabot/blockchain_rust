@@ -1,6 +1,8 @@
 use crate::{ProofOfWork, Transaction};
+use serde::{Deserialize, Serialize};
+use sled::IVec;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Block {
     timestamp: i64,
     pre_block_hash: String,
@@ -62,5 +64,12 @@ impl Block {
 
     pub fn get_height(&self) -> usize {
         self.height
+    }
+}
+
+impl From<Block> for IVec {
+    fn from(b: Block) -> Self {
+        let bytes = bincode::serialize(&b).unwrap();
+        Self::from(bytes)
     }
 }
