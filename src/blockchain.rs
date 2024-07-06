@@ -1,6 +1,8 @@
-use crate::{Block, Transaction};
+use crate::{Block, TXOutput, Transaction};
+use data_encoding::HEXLOWER;
 use sled::transaction::TransactionResult;
 use sled::{Db, Tree};
+use std::collections::HashMap;
 use std::env::current_dir;
 use std::sync::{Arc, RwLock};
 

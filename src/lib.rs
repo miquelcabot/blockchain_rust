@@ -10,6 +10,7 @@ pub use block::Block;
 pub use blockchain::Blockchain;
 pub use nodes::Nodes;
 pub use server::Server;
+pub use transaction::TXOutput;
 pub use transaction::Transaction;
 pub use wallet::Wallet;
 

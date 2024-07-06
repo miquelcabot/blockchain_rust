@@ -1,5 +1,5 @@
-use crypto::digest::Digest;
 use bs58;
+use crypto::digest::Digest;
 use ring::digest::{Context, SHA256};
 use std::iter::repeat;
 use std::time::{SystemTime, UNIX_EPOCH};
