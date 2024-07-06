@@ -12,3 +12,4 @@ num-bigint = "0.4.6"
 ring = "0.17.8"
 serde = { version = "1.0.203", features = ["derive"] }
 sled = "0.34.7"
+uuid = "1.9.1"
