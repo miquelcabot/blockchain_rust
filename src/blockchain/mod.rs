@@ -61,4 +61,17 @@ impl Blockchain {
             db,
         }
     }
+
+    pub fn get_db(&self) -> &Db {
+        &self.db
+    }
+
+    pub fn get_tip_hash(&self) -> String {
+        self.tip_hash.read().unwrap().clone()
+    }
+
+    pub fn set_tip_hash(&self, new_tip_hash: &str) {
+        let mut tip_hash = self.tip_hash.write().unwrap();
+        *tip_hash = String::from(new_tip_hash)
+    }
 }
