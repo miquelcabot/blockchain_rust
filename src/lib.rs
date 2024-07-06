@@ -17,4 +17,5 @@ pub use wallet::Wallet;
 pub use utils::base58_decode;
 pub use utils::base58_encode;
 pub use utils::current_timestamp;
+pub use utils::hash_pub_key;
 pub use utils::sha256_digest;
