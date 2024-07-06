@@ -35,7 +35,7 @@ impl TXInput {
     }
 
     pub fn uses_key(&self, pub_key_hash: &[u8]) -> bool {
-        let locking_hash = wallet::hash_pub_key(self.pub_key.as_slice());
+        let locking_hash = crate::hash_pub_key(self.pub_key.as_slice());
         return locking_hash.eq(pub_key_hash);
     }
 }
