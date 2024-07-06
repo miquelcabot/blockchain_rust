@@ -14,5 +14,7 @@ pub use transaction::Transaction;
 pub use wallet::Wallet;
 
 // functions from utils
+pub use utils::base58_decode;
+pub use utils::base58_encode;
 pub use utils::current_timestamp;
 pub use utils::sha256_digest;
