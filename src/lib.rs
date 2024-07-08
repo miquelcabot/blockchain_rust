@@ -1,5 +1,6 @@
 pub mod block;
 pub mod blockchain;
+pub mod config;
 pub mod memory_pool;
 pub mod nodes;
 pub mod server;
@@ -10,6 +11,8 @@ pub mod wallet;
 
 pub use block::Block;
 pub use blockchain::Blockchain;
+pub use config::Config;
+pub use config::GLOBAL_CONFIG;
 pub use memory_pool::BlockInTransit;
 pub use memory_pool::MemoryPool;
 pub use nodes::Nodes;
