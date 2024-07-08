@@ -1,5 +1,6 @@
 pub mod block;
 pub mod blockchain;
+pub mod memory_pool;
 pub mod nodes;
 pub mod server;
 pub mod transaction;
@@ -8,6 +9,8 @@ pub mod wallet;
 
 pub use block::Block;
 pub use blockchain::Blockchain;
+pub use memory_pool::BlockInTransit;
+pub use memory_pool::MemoryPool;
 pub use nodes::Nodes;
 pub use server::Server;
 pub use transaction::TXOutput;
