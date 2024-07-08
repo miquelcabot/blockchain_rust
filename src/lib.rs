@@ -5,6 +5,7 @@ pub mod nodes;
 pub mod server;
 pub mod transaction;
 pub mod utils;
+pub mod utxo_set;
 pub mod wallet;
 
 pub use block::Block;
@@ -15,6 +16,7 @@ pub use nodes::Nodes;
 pub use server::Server;
 pub use transaction::TXOutput;
 pub use transaction::Transaction;
+pub use utxo_set::UTXOSet;
 pub use wallet::Wallet;
 
 // functions from utils
