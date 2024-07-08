@@ -1,6 +1,7 @@
 use bs58;
 use crypto::digest::Digest;
 use ring::digest::{Context, SHA256};
+use ring::signature::ECDSA_P256_SHA256_FIXED;
 use std::iter::repeat;
 use std::time::{SystemTime, UNIX_EPOCH};
 
@@ -37,4 +38,11 @@ pub fn base58_encode(data: &[u8]) -> String {
 
 pub fn base58_decode(data: &str) -> Vec<u8> {
     bs58::decode(data).into_vec().unwrap()
+}
+
+pub fn ecdsa_p256_sha256_sign_verify(public_key: &[u8], signature: &[u8], message: &[u8]) -> bool {
+    let peer_public_key =
+        ring::signature::UnparsedPublicKey::new(&ECDSA_P256_SHA256_FIXED, public_key);
+    let result = peer_public_key.verify(message, signature.as_ref());
+    result.is_ok()
 }
