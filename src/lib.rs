@@ -1,37 +1,47 @@
-pub mod block;
-pub use block::Block;
+mod block;
+use block::Block;
 
-pub mod blockchain;
+mod blockchain;
 pub use blockchain::Blockchain;
 
-pub mod config;
-pub use config::Config;
-pub use config::GLOBAL_CONFIG;
+mod utxo_set;
+pub use utxo_set::UTXOSet;
 
-pub mod memory_pool;
+mod transactions;
+pub use transactions::TXOutput;
+pub use transactions::Transaction;
+
+mod wallets;
+pub use wallets::convert_address;
+pub use wallets::hash_pub_key;
+pub use wallets::validate_address;
+pub use wallets::Wallet;
+pub use wallets::Wallets;
+pub use wallets::ADDRESS_CHECK_SUM_LEN;
+
+mod server;
+pub use server::send_tx;
+pub use server::Package;
+pub use server::Server;
+pub use server::CENTERAL_NODE;
+
+mod node;
+pub use node::Nodes;
+
+mod memory_pool;
 pub use memory_pool::BlockInTransit;
 pub use memory_pool::MemoryPool;
 
-pub mod nodes;
-pub use nodes::Nodes;
-
-pub mod server;
-pub use server::Server;
-
-pub mod transaction;
-pub use transaction::TXOutput;
-pub use transaction::Transaction;
+mod config;
+pub use config::Config;
+pub use config::GLOBAL_CONFIG;
 
 pub mod utils;
-pub use utils::base58_decode;
-pub use utils::base58_encode;
-pub use utils::current_timestamp;
-pub use utils::ecdsa_p256_sha256_sign_verify;
-pub use utils::hash_pub_key;
-pub use utils::sha256_digest;
-
-pub mod utxo_set;
-pub use utxo_set::UTXOSet;
-
-pub mod wallet;
-pub use wallet::Wallet;
+use utils::base58_decode;
+use utils::base58_encode;
+use utils::current_timestamp;
+use utils::ecdsa_p256_sha256_sign_digest;
+use utils::ecdsa_p256_sha256_sign_verify;
+use utils::new_key_pair;
+use utils::ripemd160_digest;
+use utils::sha256_digest;

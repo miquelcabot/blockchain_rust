@@ -1,4 +1,3 @@
-use blockchain_rust::Block;
 use clap::{Parser, Subcommand};
 
 #[derive(Parser, Debug)]
@@ -57,15 +56,6 @@ fn main() {
             println!("Create a new blockchain with address: {}", address);
         }
         Command::Createwallet => {
-            let block = Block::new_block(
-                "000be0c84d81ad9b335e56eccc37dd80fcbba47acc02ca19e2083c54f0188ce3".to_string(),
-                &[],
-                0,
-            );
-            println!("{:?}", block);
-            let block = Block::new_block(block.get_hash().to_string(), &[], 1);
-            println!("{:?}", block);
-
             println!("Create a new wallet");
         }
         Command::GetBalance { address } => {
