@@ -3,6 +3,7 @@ use data_encoding::HEXLOWER;
 use std::collections::HashMap;
 use std::sync::RwLock;
 
+/// ( K -> txid_hex, V => Transaction )
 pub struct MemoryPool {
     inner: RwLock<HashMap<String, Transaction>>,
 }
