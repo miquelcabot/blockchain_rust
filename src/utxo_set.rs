@@ -1,5 +1,4 @@
-use crate::transaction::TXOutput;
-use crate::{Block, Blockchain};
+use crate::{Block, Blockchain, TXOutput};
 use data_encoding::HEXLOWER;
 use std::collections::HashMap;
 
