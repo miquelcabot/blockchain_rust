@@ -9,6 +9,7 @@ use std::sync::{Arc, RwLock};
 const TIP_BLOCK_HASH_KEY: &str = "tip_block_hash";
 const BLOCKS_TREE: &str = "blocks";
 
+#[derive(Clone)]
 pub struct Blockchain {
     tip_hash: Arc<RwLock<String>>, // hash of last block
     db: Db,
